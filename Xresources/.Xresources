@@ -1,0 +1,13 @@
+!~/.Xresources
+
+URxvt*loginShell: 		true
+URxvt*scrollStyle:		plain
+URxvt*scrollTtyKeyPress:	true
+URxvt*scrollTtyOutput:		false
+URxvt*scrollBar:		false
+URxvt*scrollBar_right:		false
+URxvt*scrollBar_floating:	false
+URxvt*fading:			30
+
+#include ".cache/wal/colors.Xresources"
+#include ".cache/wal/colors-rofi-dark.rasi"
