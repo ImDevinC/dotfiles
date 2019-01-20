@@ -94,3 +94,6 @@ command -v gpg-connect-agent > /dev/null 2>&1 && {
 }
 
 (cat ~/.cache/wal/sequences &)
+
+bindkey ';5D' backward-word
+bindkey ';5c' forward-word

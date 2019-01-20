@@ -1,13 +1,37 @@
 !~/.Xresources
 
+!! Perl Extensions
+URxvt.perl-ext-common: 		default,matcher,keyboard-select,selection-to-clipboard
+
+!! URLs
+URxvt.keysym.C-U:		perl:url-select:select-next
+URxvt.url-launcher:		/usr/bin/chromium
+URxvt.underlineURLs: 		true
+URxvt.matcher.button:		1
+
+!! Copy-paste
+URxvt.keysym.M-Escape:		perl:keyboard-select:activate
+URxvt.keysym.C-M-c:		builtin-string:
+URxvt.keysym.C-M-v:		builtin-string:
+URxvt.keysym.C-S-C:		eval:selection_to_clipboard
+URxvt.keysym.C-S-V:		eval:paste_clipboard
+
+!! Shell formatting
 URxvt*loginShell: 		true
 URxvt*scrollStyle:		plain
 URxvt*scrollTtyKeyPress:	true
-URxvt*scrollTtyOutput:		false
 URxvt*scrollBar:		false
 URxvt*scrollBar_right:		false
 URxvt*scrollBar_floating:	false
 URxvt*fading:			30
 
+!! Keybinds
+URxvt*keysym.Control-Up:	\033[1;5A
+URxvt*keysym.Control-Down:	\033[1;5B
+URxvt*keysym.Control-Left:	\033[1;5D
+URxvt*keysym.Control-Right:	\033[1;5C
+URxvt.iso14755:			false
+URxvt.iso14755_52:		false
+
+!! Colors
 #include ".cache/wal/colors.Xresources"
-#include ".cache/wal/colors-rofi-dark.rasi"
