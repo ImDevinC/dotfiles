@@ -9,8 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
-set $sup Mod4
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -174,7 +173,7 @@ bindsym $mod+r mode "resize"
 
 set $terminal urxvt
 
-bindsym $sup+shift+l exec ~/.dotfiles/i3/lockscreen.sh
+bindsym $mod+shift+x exec ~/.dotfiles/i3/lockscreen.sh
 bindsym $mod+F1 exec i3-sensible-terminal -e "ranger"
 bindsym $mod+F2 exec chromium
 
