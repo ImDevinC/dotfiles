@@ -48,7 +48,7 @@ fi
 
 # If docker exists, setup some base aliases
 command -v docker > /dev/null 2>&1 && {
-  alias terraform="docker run --rm -t -v $(pwd):/app -w /app -v ~/.aws:/root/.aws hashicorp/terraform:0.11.10"
+  alias terraform="docker run --rm -t -v \$(pwd):/app -w /app -v ~/.aws:/root/.aws hashicorp/terraform:0.11.10"
   alias redis-cli="docker run --rm -t -it redis:latest redis-cli"
 }
 
