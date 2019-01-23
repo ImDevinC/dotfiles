@@ -65,7 +65,7 @@ font-4 = fixed:pixelsize=10;1
 
 modules-left = powermenu bspwm i3
 modules-center = cpu
-modules-right = pulseaudio-tail eth filesystem date 
+modules-right = pulseaudio-tail openvpn eth filesystem date 
 
 ;tray-position = right
 ;tray-padding = 2
@@ -416,6 +416,11 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/openvpn]
+type = custom/script
+exec = ~/scripts/polybarscripts/vpn-openvpn-isrunning.sh
+interval = 5
 
 [module/date]
 type = internal/date

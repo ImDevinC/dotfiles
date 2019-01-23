@@ -33,5 +33,7 @@ URxvt*keysym.Control-Right:	\033[1;5C
 URxvt.iso14755:			false
 URxvt.iso14755_52:		false
 
+URxvt.font: 			xft:Terminus (TTF):size=9
+
 !! Colors
 #include ".cache/wal/colors.Xresources"
