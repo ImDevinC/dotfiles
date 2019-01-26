@@ -101,8 +101,6 @@ command -v gpg-connect-agent > /dev/null 2>&1 && {
 
 if [ -f $HOME/.cache/wal/sequences ]; then
   (cat $HOME/.cache/wal/sequences &)
-elif [ -f $HOME/.themes/oceanic-next.dark.sh ]; then
-  ($HOME/.themes/oceanic-next.dark.sh &)
 fi
 
 if [ ${machine}=="Linux" ]; then
