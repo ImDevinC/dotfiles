@@ -11,27 +11,39 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git adb archlinux cp)
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*)   machine=Linux;;
+  Darwin*)  machine=Mac;;
+  *)        machine="Uknown:${unameOut}"
+esac
+
+plugins=(git adb cp)
+if [ ${machine}=="Mac" ]; then
+  plugins+=(mac)
+elif [ ${machine}=="Linux" ]; then
+  plugins+=(archlinux)
+fi
+
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/build-tools/18.0.1/:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/Android/Sdk/platform-tools:/home/devin/.gem/ruby/2.5.0/bin:$HOME/.go/bin:$HOME/.local/bin"
-
+PATH=""
+if [ -d "/usr/local/sbin" ]; then PATH="${PATH}:/usr/local/sbin" fi
+if [ -d "/usr/local/bin" ]; then PATH="${PATH}:/usr/local/bin" fi
+if [ -d "/usr/lib/jvm/default/bin" ]; then PATH="${PATH}:/usr/lib/jvm/default/bin" fi
+if [ -d "/usr/bin/site_perl" ]; then PATH="${PATH}:/usr/bin/site_perl" fi
+if [ -d "/usr/bin/vendor_perl" ]; then PATH="${PATH}:/usr/bin/vendor_perl" fi
+if [ -d "/usr/bin/core_perl" ]; then PATH="${PATH}:/usr/bin/core_perl" fi
+if [ -d "${HOME}/.gem/ruby/2.5.0/bin" ]; then PATH="${PATH}:${HOME}/.gem/ruby/2.5.0/bin" fi
+if [ -d "${HOME}/.bin" ]; then PATH="${PATH}:${HOME}/.bin" fi
+if [ -d "${HOME}/.go" ]; then PATH="${PATH}:${HOME}/.go" fi
+if [ -d "${HOME}/.local/bin" ]; then PATH="${PATH}:${HOME}/.local/bin" fi
+if [ -d "/usr/bin" ]; then PATH="${PATH}:/usr/bin" fi
+if [ -d "/bin" ]; then PATH="${PATH}:/bin" fi
+if [ -d "/usr/sbin" ]; then PATH="${PATH}:/usr/sbin" fi
+export PATH=${PATH}
 source $ZSH/oh-my-zsh.sh
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias r2w="sudo ~/.bin/reboottowindows.sh"
-
-# Base16 Shell
-#BASE16_SHELL="$HOME/.themes/oceanic-next.dark.sh"
-#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # If .nvm exists, source it
 if [ -d "$HOME/.nvm" ]; then
@@ -87,7 +99,14 @@ command -v gpg-connect-agent > /dev/null 2>&1 && {
   export XDG_RUNTIME_DIR=/run/user/`id -u`
 }
 
-(cat ~/.cache/wal/sequences &)
+if [ -f $HOME/.cache/wal/sequences ]; then
+  (cat $HOME/.cache/wal/sequences &)
+elif [ -f $HOME/.themes/oceanic-next.dark.sh ]; then
+  ($HOME/.themes/oceanic-next.dark.sh &)
+fi
 
-bindkey ';5D' backward-word
-bindkey ';5c' forward-word
+if [ ${machine}=="Linux" ]; then
+  alias r2w="sudo ~/.bin/reboottowindows.sh"
+  bindkey ';5D' backward-word
+  bindkey ';5c' forward-word
+fi
