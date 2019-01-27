@@ -96,7 +96,7 @@ command -v gpg-connect-agent > /dev/null 2>&1 && {
   unset SSH_AGENT_PID
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
-  export XDG_RUNTIME_DIR=/run/user/`id -u`
+  if [ ${machine}=="Linux" ]; then export XDG_RUNTIME_DIR=/run/user/`id -u`; fi
 }
 
 if [ -f $HOME/.cache/wal/sequences ]; then
