@@ -65,7 +65,7 @@ font-4 = fixed:pixelsize=10;1
 
 modules-left = powermenu bspwm i3
 modules-center = cpu
-modules-right = pulseaudio-tail openvpn eth filesystem date 
+modules-right = pulseaudio openvpn eth filesystem date 
 
 ;tray-position = right
 ;tray-padding = 2
