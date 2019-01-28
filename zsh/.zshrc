@@ -42,6 +42,7 @@ if [ -d "${HOME}/.local/bin" ]; then PATH="${PATH}:${HOME}/.local/bin" fi
 if [ -d "/usr/bin" ]; then PATH="${PATH}:/usr/bin" fi
 if [ -d "/bin" ]; then PATH="${PATH}:/bin" fi
 if [ -d "/usr/sbin" ]; then PATH="${PATH}:/usr/sbin" fi
+if [ -d "/sbin" ]; then PATH="${PATH}:/sbin" fi
 export PATH=${PATH}
 source $ZSH/oh-my-zsh.sh
 
