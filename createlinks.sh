@@ -12,4 +12,6 @@ command -v zsh > /dev/null 2>&1 && {
   ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 }
 
-#ln -sf ~/.dotfiles/themes ~/.themes
+if [ -d "~/Library/Application Support/iTerm2/DynamicProfiles" ]; then
+  ln -sf ~/.dotfiles/iTerm/profile.json "~/Library/Application Support/iTerm2/DynamicProfiles/profile.json"
+fi

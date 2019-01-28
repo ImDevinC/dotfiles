@@ -19,9 +19,9 @@ case "${unameOut}" in
 esac
 
 plugins=(git adb cp)
-if [ ${machine}=="Mac" ]; then
+if [[ "${machine}" == "Mac" ]]; then
   plugins+=(mac)
-elif [ ${machine}=="Linux" ]; then
+elif [ "${machine}" == "Linux" ]]; then
   plugins+=(archlinux)
 fi
 
@@ -94,14 +94,14 @@ command -v gpg-connect-agent > /dev/null 2>&1 && {
   unset SSH_AGENT_PID
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
-  if [ ${machine}=="Linux" ]; then export XDG_RUNTIME_DIR=/run/user/`id -u`; fi
+  if [[ "${machine}" == "Linux" ]]; then export XDG_RUNTIME_DIR=/run/user/`id -u`; fi
 }
 
 if [ -f $HOME/.cache/wal/sequences ]; then
   (cat $HOME/.cache/wal/sequences &)
 fi
 
-if [ ${machine}=="Linux" ]; then
+if [[ "${machine}" == "Linux" ]]; then
   alias r2w="sudo ~/.bin/reboottowindows.sh"
   bindkey ';5D' backward-word
   bindkey ';5c' forward-word
