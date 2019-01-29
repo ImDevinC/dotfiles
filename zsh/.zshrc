@@ -21,7 +21,7 @@ esac
 plugins=(git adb cp)
 if [[ "${machine}" == "Mac" ]]; then
   plugins+=(mac)
-elif [ "${machine}" == "Linux" ]]; then
+elif [[ "${machine}" == "Linux" ]]; then
   plugins+=(archlinux)
 fi
 
