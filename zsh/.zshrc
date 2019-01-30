@@ -108,3 +108,15 @@ if [[ "${machine}" == "Linux" ]]; then
   bindkey ';5c' forward-word
   unset zle_bracketed_paste
 fi
+
+if [[ -f "/usr/lib/systemd/system/openvpn-client@.service" ]]; then
+  function vpnstop () {
+    local SERVER=${1?"Must specify server"} 
+    sudo systemctl stop openvpn-client@${SERVER}
+  }
+
+  function vpnstart () {
+    local SERVER=${1?"Must specify server"}
+    sudo systemctl start openvpn-client@${SERVER}
+  }
+fi
