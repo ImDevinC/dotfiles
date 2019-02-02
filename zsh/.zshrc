@@ -1,16 +1,3 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="af-magic"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 unameOut="$(uname -s)"
 case "${unameOut}" in
   Linux*)   machine=Linux;;
@@ -18,15 +5,16 @@ case "${unameOut}" in
   *)        machine="Uknown:${unameOut}"
 esac
 
-plugins=(git adb cp)
+xport ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="af-magic"
+
+plugins=(git adb cp autojump) 
 if [[ "${machine}" == "Mac" ]]; then
   plugins+=(mac)
 elif [[ "${machine}" == "Linux" ]]; then
   plugins+=(archlinux)
 fi
 
-
-# User configuration
 
 PATH=""
 if [ -d "/usr/local/sbin" ]; then PATH="${PATH}:/usr/local/sbin" fi
@@ -45,6 +33,7 @@ if [ -d "/usr/sbin" ]; then PATH="${PATH}:/usr/sbin" fi
 if [ -d "/sbin" ]; then PATH="${PATH}:/sbin" fi
 if [ -d "/opt/puppetlabs/client-tools/bin" ]; then PATH="${PATH}:/opt/puppetlabs/client-tools/bin" fi
 export PATH=${PATH}
+
 source $ZSH/oh-my-zsh.sh
 
 # If .nvm exists, source it
@@ -57,7 +46,7 @@ if [ -d "$HOME/.go" ]; then
   export GOPATH="$HOME/.go"
 fi
 
-# If terraform exists (it should if docker exists), setup some aliases
+# If terraform exists setup some aliases
 command -v terraform > /dev/null 2>&1 && {
   function tf () {
     local COMMAND=${1?"Must specify command"}
@@ -98,10 +87,12 @@ command -v gpg-connect-agent > /dev/null 2>&1 && {
   if [[ "${machine}" == "Linux" ]]; then export XDG_RUNTIME_DIR=/run/user/`id -u`; fi
 }
 
+# Get our theming down
 if [ -f $HOME/.cache/wal/sequences ]; then
   (cat $HOME/.cache/wal/sequences &)
 fi
 
+# Setup some linux specific keybinds and aliases
 if [[ "${machine}" == "Linux" ]]; then
   alias r2w="sudo ~/.bin/reboottowindows.sh"
   bindkey ';5D' backward-word
@@ -109,6 +100,7 @@ if [[ "${machine}" == "Linux" ]]; then
   unset zle_bracketed_paste
 fi
 
+# Shorthand VPN commands
 if [[ -f "/usr/lib/systemd/system/openvpn-client@.service" ]]; then
   function vpnstop () {
     local SERVER=${1?"Must specify server"} 
