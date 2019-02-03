@@ -8,7 +8,7 @@ esac
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="af-magic"
 
-plugins=(git adb cp autojump) 
+plugins=(git adb cp autojump docker) 
 if [[ "${machine}" == "Mac" ]]; then
   plugins+=(mac)
 elif [[ "${machine}" == "Linux" ]]; then
@@ -71,6 +71,15 @@ command -v terraform > /dev/null 2>&1 && {
   alias tfdestroy="tf destroy"
   alias tfrefresh="tf refresh"
 } 
+
+# If docker is installed, setup some common aliases
+command -v docker > /dev/null 2>&1 && {
+  function todo () {
+    docker run -it --rm -v "$HOME/Google Drive/todos:/todos" imdevinc/todosh $@
+  }
+
+  alias t=todo
+}
 
 # If hub is installed, alias it
 command -v hub > /dev/null 2>&1 && {
