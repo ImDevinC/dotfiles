@@ -1,6 +1,6 @@
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh.git
-[submodule "vim/miniml"]
-	path = vim/miniml
-	url = git@github.com:julien/vim-miniml.git
+[submodule "vim/palenight"]
+	path = vim/palenight
+	url = git@github.com:drewtempelmeyer/palenight.vim.git

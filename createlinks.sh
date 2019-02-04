@@ -29,4 +29,4 @@ if [ -d "$HOME/Library/Application Support/iTerm2/DynamicProfiles" ]; then
 fi
 
 mkdir -p "$HOME/.vim/colors" > /dev/null 2>&1
-cp "${PWD}/vim/miniml/colors/miniml.vim" "$HOME/.vim/colors/miniml.vim"
+cp "${PWD}/vim/palenight/colors/palenight.vim" "$HOME/.vim/colors/palenight.vim"
