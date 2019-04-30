@@ -42,8 +42,8 @@ if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
 fi
 
 # If .go exists, source it
-if [ -d "$HOME/.go" ]; then
-  export GOPATH="$HOME/.go"
+if [ -d "$HOME/go" ]; then
+  export GOPATH="$HOME/go"
 fi
 
 # If terraform exists setup some aliases
@@ -79,6 +79,10 @@ command -v docker > /dev/null 2>&1 && {
   }
 
   alias t=todo
+
+  function hydra() {
+    docker run oryd/hydra $@
+  }
 }
 
 # If hub is installed, alias it
@@ -120,4 +124,13 @@ if [[ -f "/usr/lib/systemd/system/openvpn-client@.service" ]]; then
     local SERVER=${1?"Must specify server"}
     sudo systemctl start openvpn-client@${SERVER}
   }
+fi
+
+if [[ -f "/usr/bin/virtualenvwrapper.sh" ]]; then
+  export WORKON_HOME=$HOME/.virtualenvs
+  export PROJECT_HOME=$HOME/Projects
+  if [[ ! -d $WORKON_HOME ]]; then
+    mkdir $WORKON_HOME
+  fi
+  source /usr/bin/virtualenvwrapper.sh
 fi
