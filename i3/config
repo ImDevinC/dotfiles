@@ -204,6 +204,7 @@ client.background	#ffffff
 
 for_window [class="^.*"] border pixel 3
 for_window [class="Window"] floating enable
+for_window [title="^Android Emulator .*"] floating enable
 
-gaps inner 30
-gaps outer 10
+gaps inner 5
+gaps outer 5
