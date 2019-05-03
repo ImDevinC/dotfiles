@@ -51,9 +51,9 @@ font-1 = "Font Awesome 5 Free:style=solid:pixelsize=8;1"
 font-2 = "Wuncon Siji:pixelsize=10;1"
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-4 = fixed:pixelsize=10;1
-modules-left = powermenu i3 
-modules-center = cpu memory temperature
-modules-right = pulseaudio openvpn eth filesystem date 
+modules-left = i3 
+modules-center = openvpn
+modules-right = temperature cpu memory filesystem pulseaudio eth date powermenu
 tray-detached=false
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -62,7 +62,7 @@ cursor-scroll = ns-resize
 type = internal/fs
 interval = 25
 mount-0 = /
-label-mounted =   %percentage_used%%
+label-mounted =  %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = #66
 label-mounted-foreground = ${colors.grey}
@@ -106,39 +106,14 @@ label-separator-foreground = #ffb52a
 [module/cpu]
 type = internal/cpu
 interval = 0.5
-format = <label> <ramp-coreload>
-label = 
-label-padding-left = 4
+format = <label>
+label =  %percentage%% 
 label-foreground = ${colors.grey}
-ramp-coreload-0 = ▁
-ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = ${colors.turkis}
-ramp-coreload-1 = ▂
-ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = ${colors.turkis}
-ramp-coreload-2 = ▃
-ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = ${colors.turkis}
-ramp-coreload-3 = ▄
-ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = ${colors.turkis}
-ramp-coreload-4 = ▅
-ramp-coreload-4-font = 2
-ramp-coreload-4-foreground = ${colors.pink}
-ramp-coreload-5 = ▆
-ramp-coreload-5-font = 2
-ramp-coreload-5-foreground = #fba922
-ramp-coreload-6 = ▇
-ramp-coreload-6-font = 2
-ramp-coreload-6-foreground = #ff5555
-ramp-coreload-7 = █
-ramp-coreload-7-font = 2
-ramp-coreload-7-foreground = #ff5555
 
 [module/memory]
 type = internal/memory
 format = <label>
-label =  %gb_used%/%gb_free%
+label =  %percentage_used%%
 label-foreground = ${colors.grey}
 bar-used-width = 15
 bar-used-foreground-0 = ${colors.turkis}
@@ -193,6 +168,7 @@ ramp-volume-2 =
 ramp-volume-3 = 
 
 [module/temperature]
+interval = 5
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
