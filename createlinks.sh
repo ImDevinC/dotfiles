@@ -30,3 +30,6 @@ fi
 
 mkdir -p "$HOME/.vim/colors" > /dev/null 2>&1
 cp "${PWD}/vim/palenight/colors/palenight.vim" "$HOME/.vim/colors/palenight.vim"
+if [[ ! -L "$HOME/.vimrc" ]]; then
+  ln -sf "${PWD}/vim/.vimrc" "$HOME/.vimrc"
+fi
