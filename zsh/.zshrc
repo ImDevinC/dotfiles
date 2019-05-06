@@ -10,7 +10,7 @@ ZSH_THEME="af-magic"
 
 plugins=(git adb cp autojump docker) 
 if [[ "${machine}" == "Mac" ]]; then
-  plugins+=(mac)
+  plugins+=(osx)
 elif [[ "${machine}" == "Linux" ]]; then
   plugins+=(archlinux)
 fi
@@ -138,4 +138,14 @@ if [[ -f "/usr/bin/virtualenvwrapper.sh" ]]; then
     mkdir $WORKON_HOME
   fi
   source /usr/bin/virtualenvwrapper.sh
+fi
+
+if [[ -f "/usr/local/bin/virtualenvwrapper.sh" ]]; then
+  export VIRTUALENVWRAPPER_PYTHON=`which python3`
+  export WORKON_HOME=$HOME/.virtualenvs
+  export PROJECT_HOME=$HOME/Projects
+  if [[ ! -d $WORKON_HOME ]]; then
+    mkdir $WORKON_HOME
+  fi
+  source /usr/local/bin/virtualenvwrapper.sh
 fi
