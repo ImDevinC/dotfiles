@@ -149,3 +149,8 @@ if [[ -f "/usr/local/bin/virtualenvwrapper.sh" ]]; then
   fi
   source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+function gprune() {
+  git branch -d $(git branch --merged=master | grep -v master)
+  git fetch --prune
+}
