@@ -83,6 +83,11 @@ command -v docker > /dev/null 2>&1 && {
   function hydra() {
     docker run oryd/hydra $@
   }
+
+  function ncmpcpp() {
+    docker run --rm --network mopidy_default -it wernight/ncmpcpp ncmpcpp mopidy_mopidy_1 --host mopidy_mopidy_1
+  }
+	   
 }
 
 # If hub is installed, alias it
