@@ -149,3 +149,7 @@ if [[ -f "/usr/local/bin/virtualenvwrapper.sh" ]]; then
   fi
   source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+if [[ $TILIX_ID ]] || [[ $VTE_VERSION ]]; then
+  source /etc/profile.d/vte.sh;
+fi
