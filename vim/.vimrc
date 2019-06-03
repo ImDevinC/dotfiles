@@ -29,6 +29,7 @@ nnoremap <space> za
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }}}
 " Theme {{{
