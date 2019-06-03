@@ -29,7 +29,9 @@ if [ -d "$HOME/Library/Application Support/iTerm2/DynamicProfiles" ]; then
 fi
 
 mkdir -p "$HOME/.vim/colors" > /dev/null 2>&1
-ln -sf "${PWD}/vim/.vim/autoload" "$HOME/.vim/autoload"
+if [[ ! -L "$HOME/.vim/autoload" ]]; then
+  ln -sf "${PWD}/vim/.vim/autoload" "$HOME/.vim/autoload"
+fi
 if [[ ! -L "$HOME/.vimrc" ]]; then
   ln -sf "${PWD}/vim/.vimrc" "$HOME/.vimrc"
 fi
