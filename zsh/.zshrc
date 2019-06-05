@@ -42,9 +42,30 @@ if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
 fi
 
 # If .go exists, source it
-if [ -d "$HOME/go" ]; then
-  export GOPATH="$HOME/go"
+if [ -d "$HOME/.go" ]; then
+  export GOPATH="$HOME/.go"
 fi
+
+# If docker is installed, setup some common aliases
+command -v docker > /dev/null 2>&1 && {
+  function todo () {
+    docker run -it --rm -v "$HOME/Google Drive/todos:/todos" imdevinc/todosh $@
+  }
+
+  alias t=todo
+
+  function hydra() {
+    docker run oryd/hydra $@
+  }
+
+  function ncmpcpp() {
+    docker run --rm --network mopidy_default -it wernight/ncmpcpp ncmpcpp mopidy_mopidy_1 --host mopidy_mopidy_1
+  }
+
+  function terraform() {
+    docker run --user ${UID}:${GID} -t -v ~/.aws:/home/${USER}/.aws:ro -v /etc/passwd:/etc/passwd:ro -v $(pwd):/app/ -w /app hashicorp/terraform:0.11.14 $@
+  }
+}
 
 # If terraform exists setup some aliases
 command -v terraform > /dev/null 2>&1 && {
@@ -71,24 +92,6 @@ command -v terraform > /dev/null 2>&1 && {
   alias tfdestroy="tf destroy"
   alias tfrefresh="tf refresh"
 } 
-
-# If docker is installed, setup some common aliases
-command -v docker > /dev/null 2>&1 && {
-  function todo () {
-    docker run -it --rm -v "$HOME/Google Drive/todos:/todos" imdevinc/todosh $@
-  }
-
-  alias t=todo
-
-  function hydra() {
-    docker run oryd/hydra $@
-  }
-
-  function ncmpcpp() {
-    docker run --rm --network mopidy_default -it wernight/ncmpcpp ncmpcpp mopidy_mopidy_1 --host mopidy_mopidy_1
-  }
-	   
-}
 
 # If hub is installed, alias it
 command -v hub > /dev/null 2>&1 && {
