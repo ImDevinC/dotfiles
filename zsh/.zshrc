@@ -33,7 +33,7 @@ if [ -d "/usr/sbin" ]; then PATH="${PATH}:/usr/sbin" fi
 if [ -d "/sbin" ]; then PATH="${PATH}:/sbin" fi
 if [ -d "/opt/puppetlabs/client-tools/bin" ]; then PATH="${PATH}:/opt/puppetlabs/client-tools/bin" fi
 export PATH=${PATH}
-
+alias ssh='TERM=xterm-color ssh'
 source $ZSH/oh-my-zsh.sh
 
 # If .nvm exists, source it
