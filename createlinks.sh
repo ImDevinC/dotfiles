@@ -28,10 +28,18 @@ if [ -d "$HOME/Library/Application Support/iTerm2/DynamicProfiles" ]; then
   fi
 fi
 
-mkdir -p "$HOME/.vim/colors" > /dev/null 2>&1
-if [[ ! -L "$HOME/.vim/autoload" ]]; then
-  ln -sf "${PWD}/vim/.vim/autoload" "$HOME/.vim/autoload"
-fi
-if [[ ! -L "$HOME/.vimrc" ]]; then
-  ln -sf "${PWD}/vim/.vimrc" "$HOME/.vimrc"
-fi
+command -v vim > /dev/null 2>&1 && {
+  mkdir -p "$HOME/.vim/colors" > /dev/null 2>&1
+  if [[ ! -L "$HOME/.vim/autoload" ]]; then
+    ln -sf "${PWD}/vim/.vim/autoload" "$HOME/.vim/autoload"
+  fi
+  if [[ ! -L "$HOME/.vimrc" ]]; then
+    ln -sf "${PWD}/vim/.vimrc" "$HOME/.vimrc"
+  fi
+}
+
+command -v dunst > /dev/null 2>&1 && {
+  if [[ ! -L "$HOME/.config/dunst" ]]; then
+    ln -sf "${PWD}/dunst" "${HOME}/.config/dunst"
+  fi
+}
