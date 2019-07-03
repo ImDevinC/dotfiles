@@ -35,7 +35,6 @@ if [ -d "/usr/bin" ]; then PATH="${PATH}:/usr/bin" fi
 if [ -d "/bin" ]; then PATH="${PATH}:/bin" fi
 if [ -d "/usr/sbin" ]; then PATH="${PATH}:/usr/sbin" fi
 if [ -d "/sbin" ]; then PATH="${PATH}:/sbin" fi
-if [ -d "/opt/puppetlabs/client-tools/bin" ]; then PATH="${PATH}:/opt/puppetlabs/client-tools/bin" fi
 export PATH=${PATH}
 alias ssh='TERM=xterm-color ssh'
 source $ZSH/oh-my-zsh.sh
@@ -60,10 +59,6 @@ command -v docker > /dev/null 2>&1 && {
 
   function ncmpcpp() {
     docker run --rm --network mopidy_default -it wernight/ncmpcpp ncmpcpp mopidy_mopidy_1 --host mopidy_mopidy_1
-  }
-
-  function terraform() {
-    docker run --rm --user ${UID}:${GID} -it -v ~/.aws:/home/${USER}/.aws:ro -v /etc/passwd:/etc/passwd:ro -v $(pwd):/app/ -w /app -e AWS_PROFILE=${AWS_PROFILE} hashicorp/terraform:0.11.14 $@
   }
 }
 
@@ -106,6 +101,10 @@ command -v gpg-connect-agent > /dev/null 2>&1 && {
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
   if [[ "${machine}" == "Linux" ]]; then export XDG_RUNTIME_DIR=/run/user/`id -u`; fi
+}
+
+command -v tfswitch > /dev/null 2>&1 && {
+  alias tfswitch="tfswitch -b ${HOME}/.bin/terraform"
 }
 
 # Get our theming down
