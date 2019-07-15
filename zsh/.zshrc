@@ -15,7 +15,10 @@ elif [[ "${machine}" == "Linux" ]]; then
   plugins+=(archlinux)
 fi
 
-
+# If .go exists, source it
+if [ -d "$HOME/.go" ]; then
+  export GOPATH="$HOME/.go"
+fi
 PATH=""
 if [ -d "/usr/local/sbin" ]; then PATH="${PATH}:/usr/local/sbin" fi
 if [ -d "/usr/local/bin" ]; then PATH="${PATH}:/usr/local/bin" fi
@@ -25,7 +28,7 @@ if [ -d "/usr/bin/vendor_perl" ]; then PATH="${PATH}:/usr/bin/vendor_perl" fi
 if [ -d "/usr/bin/core_perl" ]; then PATH="${PATH}:/usr/bin/core_perl" fi
 if [ -d "${HOME}/.gem/ruby/2.5.0/bin" ]; then PATH="${PATH}:${HOME}/.gem/ruby/2.5.0/bin" fi
 if [ -d "${HOME}/.bin" ]; then PATH="${PATH}:${HOME}/.bin" fi
-if [ -d "${HOME}/.go" ]; then PATH="${PATH}:${HOME}/.go" fi
+if [ -d "${GOPATH}/bin" ]; then PATH="${PATH}:${GOPATH}/bin" fi
 if [ -d "${HOME}/.local/bin" ]; then PATH="${PATH}:${HOME}/.local/bin" fi
 if [ -d "/usr/bin" ]; then PATH="${PATH}:/usr/bin" fi
 if [ -d "/bin" ]; then PATH="${PATH}:/bin" fi
@@ -39,11 +42,6 @@ source $ZSH/oh-my-zsh.sh
 # If .nvm exists, source it
 if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
   source /usr/share/nvm/init-nvm.sh
-fi
-
-# If .go exists, source it
-if [ -d "$HOME/.go" ]; then
-  export GOPATH="$HOME/.go"
 fi
 
 # If docker is installed, setup some common aliases
@@ -62,9 +60,6 @@ command -v docker > /dev/null 2>&1 && {
     docker run --rm --network mopidy_default -it wernight/ncmpcpp ncmpcpp mopidy_mopidy_1 --host mopidy_mopidy_1
   }
 
-  function terraform() {
-    docker run --user ${UID}:${GID} -t -v ~/.aws:/home/${USER}/.aws:ro -v /etc/passwd:/etc/passwd:ro -v $(pwd):/app/ -w /app hashicorp/terraform:0.11.14 $@
-  }
 }
 
 # If terraform exists setup some aliases

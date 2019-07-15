@@ -30,7 +30,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'hashivim/vim-terraform'
 call plug#end()
+let g:terraform_fmt_on_save=1
 " }}}
 " Theme {{{
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
