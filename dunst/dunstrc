@@ -1,0 +1,40 @@
+[global]
+alignment = center
+follow = keyboard
+frame_width = 2
+geometry = 250x0-5-5
+padding = 5
+font = FiraSans 12
+sort = true
+word_wrap = true
+separator_color = "auto"
+format = "<b>%a</b>\n%s %b\n%n"
+icon_position = "left"
+max_icon_size = 32
+horizontal_padding = 5
+show_indicators = true
+browser = "xdg-open"
+
+[shortcuts]
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+grave
+context = ctrl+shift+period
+
+[urgency_low]
+background = "#282828"
+foreground = "#b1a6aa"
+frame_color = "#b1a6aa"
+timeout = 5
+
+[urgency_normal]
+background = "#282828"
+foreground = "#78dae2"
+frame_color = "#78dae2"
+timeout = 10
+
+[urgency_critical]
+background = "#282828"
+foreground = "#cc4e5c"
+frame_color = "#cc4e5c"
+timeout = 0

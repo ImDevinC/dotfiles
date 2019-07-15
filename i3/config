@@ -183,6 +183,7 @@ exec_always --no-startup-id ~/.dotfiles/polybar/launch.sh
 exec wicd-gtk --tray
 exec_always feh --bg-scale "$(cat ~/.cache/wal/wal)"
 exec_always autocutsel
+exec dunst
 
 set_from_resource $color1 i3wm.color3 #1cffcd
 set_from_resource $color2 i3wm.color2 #ffffff

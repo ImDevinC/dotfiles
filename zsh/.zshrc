@@ -19,6 +19,10 @@ fi
 if [ -d "$HOME/.go" ]; then
   export GOPATH="$HOME/.go"
 fi
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8b341c9ec15c27e170091f402ac9185cebd1f51
 PATH=""
 if [ -d "/usr/local/sbin" ]; then PATH="${PATH}:/usr/local/sbin" fi
 if [ -d "/usr/local/bin" ]; then PATH="${PATH}:/usr/local/bin" fi
@@ -34,9 +38,8 @@ if [ -d "/usr/bin" ]; then PATH="${PATH}:/usr/bin" fi
 if [ -d "/bin" ]; then PATH="${PATH}:/bin" fi
 if [ -d "/usr/sbin" ]; then PATH="${PATH}:/usr/sbin" fi
 if [ -d "/sbin" ]; then PATH="${PATH}:/sbin" fi
-if [ -d "/opt/puppetlabs/client-tools/bin" ]; then PATH="${PATH}:/opt/puppetlabs/client-tools/bin" fi
 export PATH=${PATH}
-
+alias ssh='TERM=xterm-color ssh'
 source $ZSH/oh-my-zsh.sh
 
 # If .nvm exists, source it
@@ -59,7 +62,6 @@ command -v docker > /dev/null 2>&1 && {
   function ncmpcpp() {
     docker run --rm --network mopidy_default -it wernight/ncmpcpp ncmpcpp mopidy_mopidy_1 --host mopidy_mopidy_1
   }
-
 }
 
 # If terraform exists setup some aliases
@@ -101,6 +103,10 @@ command -v gpg-connect-agent > /dev/null 2>&1 && {
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
   if [[ "${machine}" == "Linux" ]]; then export XDG_RUNTIME_DIR=/run/user/`id -u`; fi
+}
+
+command -v tfswitch > /dev/null 2>&1 && {
+  alias tfswitch="tfswitch -b ${HOME}/.bin/terraform"
 }
 
 # Get our theming down
@@ -150,4 +156,8 @@ fi
 
 if [[ $TILIX_ID ]] || [[ $VTE_VERSION ]]; then
   source /etc/profile.d/vte.sh;
+fi
+
+if [[ -f "${HOME}/.profile" ]]; then
+    source "${HOME}/.profile"
 fi
