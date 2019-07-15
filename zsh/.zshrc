@@ -19,10 +19,7 @@ fi
 if [ -d "$HOME/.go" ]; then
   export GOPATH="$HOME/.go"
 fi
-<<<<<<< HEAD
-=======
 
->>>>>>> f8b341c9ec15c27e170091f402ac9185cebd1f51
 PATH=""
 if [ -d "/usr/local/sbin" ]; then PATH="${PATH}:/usr/local/sbin" fi
 if [ -d "/usr/local/bin" ]; then PATH="${PATH}:/usr/local/bin" fi
