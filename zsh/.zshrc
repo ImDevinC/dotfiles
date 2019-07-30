@@ -61,6 +61,11 @@ command -v docker > /dev/null 2>&1 && {
   }
 }
 
+command -v xclip > /dev/null 2>&1 && {
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+}
+
 # If terraform exists setup some aliases
 command -v terraform > /dev/null 2>&1 && {
   function tf () {
@@ -81,6 +86,11 @@ command -v terraform > /dev/null 2>&1 && {
     echo "[terraform ${COMMAND}] env:${ENV} image_tag:${IMAGE_TAG} options: $@"
     terraform init && terraform workspace select ${ENV} && terraform ${COMMAND} -var-file="./tfvars/${ENV}.tfvars" -var "image_tag=${IMAGE_TAG}" "$@"
   }
+
+  function tfdiff () {
+    diff -U10000 -w =(eval "echo $(pbpaste | awk -F"=>" '{print $1}')" | jq '.[].environment |= (. | sort_by(.name))') =(eval "echo $(pbpaste | awk -F"=>" '{print $2}')" | jq '.[].environment |= (. | sort_by(.name))')
+  }
+
   alias tfapply="tf apply"
   alias tfplan="tf plan"
   alias tfdestroy="tf destroy"
