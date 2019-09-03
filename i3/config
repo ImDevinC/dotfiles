@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym Print exec gnome-screenshot --interactive
+bindsym Print exec spectacle
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -207,6 +207,7 @@ for_window [class="^.*"] border pixel 3
 for_window [class="Window"] floating enable
 for_window [title="^Android Emulator .*"] floating enable
 for_window [title="^Authy$"] floating enable
+for_window [title="^Peek$"] floating enable
 
 gaps inner 5
 gaps outer 5

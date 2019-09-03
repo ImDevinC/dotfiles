@@ -36,5 +36,3 @@ URxvt.iso14755_52:		false
 URxvt.font: 			xft:Terminus (TTF):size=9
 
 !! Colors
-#include ".cache/wal/colors.Xresources"
-

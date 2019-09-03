@@ -117,9 +117,9 @@ command -v tfswitch > /dev/null 2>&1 && {
 }
 
 # Get our theming down
-if [ -f $HOME/.cache/wal/sequences ]; then
-  (cat $HOME/.cache/wal/sequences &)
-fi
+command -v wal > /dev/null 2>&1 && {
+  wal --theme sexy-x-dotshare -q
+}
 
 # Setup some linux specific keybinds and aliases
 if [[ "${machine}" == "Linux" ]]; then
