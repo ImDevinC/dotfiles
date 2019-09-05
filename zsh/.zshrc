@@ -39,11 +39,6 @@ export PATH=${PATH}
 alias ssh='TERM=xterm-color ssh'
 source $ZSH/oh-my-zsh.sh
 
-# If .nvm exists, source it
-if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
-  source /usr/share/nvm/init-nvm.sh
-fi
-
 # If docker is installed, setup some common aliases
 command -v docker > /dev/null 2>&1 && {
   function todo () {
