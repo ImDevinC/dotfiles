@@ -39,11 +39,6 @@ export PATH=${PATH}
 alias ssh='TERM=xterm-color ssh'
 source $ZSH/oh-my-zsh.sh
 
-# If .nvm exists, source it
-if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
-  source /usr/share/nvm/init-nvm.sh
-fi
-
 # If docker is installed, setup some common aliases
 command -v docker > /dev/null 2>&1 && {
   function todo () {
@@ -117,9 +112,9 @@ command -v tfswitch > /dev/null 2>&1 && {
 }
 
 # Get our theming down
-command -v wal > /dev/null 2>&1 && {
-  wal --theme sexy-x-dotshare -q
-}
+if [ -f $HOME/.cache/wal/sequences ]; then
+  (cat $HOME/.cache/wal/sequences &)
+fi
 
 # Setup some linux specific keybinds and aliases
 if [[ "${machine}" == "Linux" ]]; then
