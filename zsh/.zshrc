@@ -163,3 +163,15 @@ fi
 if [[ -f "${HOME}/.profile" ]]; then
     source "${HOME}/.profile"
 fi
+
+kms-decrypt () {
+    aws kms decrypt --ciphertext-blob fileb://<(printf $(pbpaste) | base64 -D) | jq -r .Plaintext | base64 -D | xxd
+}
+
+kms-encrypt () {
+    aws kms encrypt --key-id ${1} --plaintext fileb://<(printf $(pbpaste)) --output text --query CiphertextBlob
+}
+
+kms-encrypt-base64 () {
+    aws kms encrypt --key-id ${1} --plaintext fileb://<(printf $(pbpaste) | base64) --output text --query CiphertextBlob
+}
