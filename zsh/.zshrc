@@ -175,3 +175,5 @@ kms-encrypt () {
 kms-encrypt-base64 () {
     aws kms encrypt --key-id ${1} --plaintext fileb://<(printf $(pbpaste) | base64) --output text --query CiphertextBlob
 }
+
+if [ -d "${HOME}/.dotfiles/privates" ]; then for f in ${HOME}/.dotfiles/privates/*; do source $f; done; fi
