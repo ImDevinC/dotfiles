@@ -35,6 +35,7 @@ if [ -d "/usr/bin" ]; then PATH="${PATH}:/usr/bin" fi
 if [ -d "/bin" ]; then PATH="${PATH}:/bin" fi
 if [ -d "/usr/sbin" ]; then PATH="${PATH}:/usr/sbin" fi
 if [ -d "/sbin" ]; then PATH="${PATH}:/sbin" fi
+if [ -d "/usr/local/go/bin" ]; then PATH="${PATH}:/usr/local/go/bin" fi
 export PATH=${PATH}
 alias ssh='TERM=xterm-color ssh'
 source $ZSH/oh-my-zsh.sh
