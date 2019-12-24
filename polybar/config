@@ -283,9 +283,8 @@ type = custom/text
 content = "    "
 content-foreground = #fcc000
 #content-background = #f67e7d
-click-left = urxvt --hold -cd ~/Desktop/program/perl/ &
-click-middle = urxvt &
-click-right = urxvt &
+#click-left = urxvt --hold -cd ~/Desktop/program/perl/ &
+click-left = i3-sensible-terminal
 
 
 [module/file]
