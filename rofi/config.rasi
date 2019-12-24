@@ -1,0 +1,10 @@
+configuration {
+    modi: "ssh,window,drun,run";
+    bw: 1;
+    location: 0;
+    padding: 5;
+    case-sensitive:    false;
+    line-margin:       2;
+    hide-scrollbar:    true;
+    theme: "theme.rasi";
+}

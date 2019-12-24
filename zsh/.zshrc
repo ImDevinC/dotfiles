@@ -114,7 +114,7 @@ command -v tfswitch > /dev/null 2>&1 && {
 
 # Get our theming down
 if [ -f $HOME/.cache/wal/sequences ]; then
-  (cat $HOME/.cache/wal/sequences &)
+  #(cat $HOME/.cache/wal/sequences &)
 fi
 
 # Setup some linux specific keybinds and aliases
@@ -161,6 +161,10 @@ if [[ $TILIX_ID ]] || [[ $VTE_VERSION ]]; then
   source /etc/profile.d/vte.sh;
 fi
 
+command -v i3 > /dev/null 2>&1 && {
+  export KDEWM=$(which i3)
+}
+
 if [[ -f "${HOME}/.profile" ]]; then
     source "${HOME}/.profile"
 fi
@@ -178,3 +182,5 @@ kms-encrypt-base64 () {
 }
 
 if [ -d "${HOME}/.dotfiles/privates" ]; then for f in ${HOME}/.dotfiles/privates/*; do source $f; done; fi
+
+xrdb "${HOME}/.Xresources"

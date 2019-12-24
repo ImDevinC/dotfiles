@@ -43,3 +43,15 @@ command -v dunst > /dev/null 2>&1 && {
     ln -sf "${PWD}/dunst" "${HOME}/.config/dunst"
   fi
 }
+
+command -v compton > /dev/null 2>&1 && {
+  if [[ ! -L "$HOME/.config/compton" ]]; then
+    ln -sf "${PWD}/compton" "${HOME}/.config/compton"
+  fi
+}
+
+command -v rofi > /dev/null 2>&1 && {
+  if [[ ! -L "$HOME/.config/rofi" ]]; then
+    ln -sf "${PWD}/rofi" "${HOME}/.config/rofi"
+  fi
+}
