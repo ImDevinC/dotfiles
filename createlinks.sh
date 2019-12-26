@@ -25,9 +25,8 @@ command -v zsh > /dev/null 2>&1 && {
 if [ -d "$HOME/Library/Application Support/iTerm2/DynamicProfiles" ]; then
   if [[ -d "${HOME}/.dotfiles/iTerm" ]]; then
     for f in ${HOME}/.dotfiles/iTerm/*.json; do
-            echo $(basename $f)
       if [[ ! -L "$HOME/Library/Application Support/iTerm2/DynamicProfiles/$(basename $f)" ]]; then  
-        ln -sf "${PWD}/iTerm/$(basename $f).json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/$(basename $f)"
+        ln -sf "${PWD}/iTerm/$(basename $f)" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/$(basename $f)"
       fi
     done
   fi
