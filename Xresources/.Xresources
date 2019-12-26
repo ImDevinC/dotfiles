@@ -81,7 +81,7 @@ URxvt.foreground: #FCC000
  
 ! cyan
 *.color6:       #06989a
-*.color14:      #34e2e2
+*.color14:      #f9da75
  
 ! white
 *.color7:       #d3d7cf
