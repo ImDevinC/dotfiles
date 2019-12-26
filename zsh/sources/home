@@ -1,0 +1,23 @@
+#!/bin/zsh
+if [[ "${machine}" == "Linux" ]]; then
+  alias r2w="sudo ~/.bin/reboottowindows.sh"
+  bindkey ';5D' backward-word
+  bindkey ';5c' forward-word
+  unset zle_bracketed_paste
+fi
+
+if [[ -f "/usr/lib/systemd/system/openvpn-client@.service" ]]; then
+  function vpnstop () {
+    local SERVER=${1?"Must specify server"} 
+    sudo systemctl stop openvpn-client@${SERVER}
+  }
+
+  function vpnstart () {
+    local SERVER=${1?"Must specify server"}
+    sudo systemctl start openvpn-client@${SERVER}
+  }
+fi
+
+command -v i3 > /dev/null 2>&1 && {
+  export KDEWM=$(which i3)
+}
