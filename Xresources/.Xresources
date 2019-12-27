@@ -23,7 +23,7 @@ URxvt*scrollTtyKeyPress:	true
 URxvt*scrollBar:		false
 URxvt*scrollBar_right:		false
 URxvt*scrollBar_floating:	false
-URxvt.secondaryScroll: true
+!URxvt.secondaryScroll: true
 URxvt*fading:			30
 URxvt.saveLines: 2000
 !URxvt.internalBorder: 25
