@@ -106,12 +106,12 @@
       },
       "Columns": 80,
       "Idle Code": 0,
-      "Ansi 13 Color": {
-        "Red Component": 0.97647058963775635,
-        "Color Space": "Calibrated",
-        "Blue Component": 0.21568627655506134,
-        "Alpha Component": 1,
-        "Green Component": 0.44313725829124451
+      "Ansi 13 Color" : {
+        "Red Component" : 1,
+        "Color Space" : "sRGB",
+        "Blue Component" : 0.99417419433593723,
+        "Alpha Component" : 1,
+        "Green Component" : 0.3300323486328125
       },
       "Custom Command": "No",
       "ASCII Anti Aliased": true,
@@ -371,12 +371,12 @@
         "Alpha Component": 1,
         "Green Component": 0.52549022436141968
       },
-      "Ansi 5 Color": {
-        "Red Component": 0.97254902124404907,
-        "Color Space": "Calibrated",
-        "Blue Component": 0.12941177189350128,
-        "Alpha Component": 1,
-        "Green Component": 0.35294118523597717
+      "Ansi 5 Color" : {
+        "Red Component" : 0.68627450980392157,
+        "Color Space" : "sRGB",
+        "Blue Component" : 0.68235294117647061,
+        "Alpha Component" : 1,
+        "Green Component" : 0.23529411764705882
       },
       "Use Non-ASCII Font": false,
       "Ansi 6 Color": {
