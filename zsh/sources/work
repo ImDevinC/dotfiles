@@ -41,7 +41,7 @@ command -v tfswitch > /dev/null 2>&1 && {
 
 command -v aws > /dev/null 2>&1 && {
   kms-decrypt () {
-    aws kms decrypt --ciphertext-blob fileb://<(printf $(pbpaste) | base64 -D) | jq -r .Plaintext | base64 -D | xxd
+    aws kms decrypt --ciphertext-blob fileb://<(printf $(pbpaste) | base64 -d) | jq -r .Plaintext | base64 -d | xxd
   }
 
   kms-encrypt () {
