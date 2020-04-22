@@ -19,7 +19,7 @@ client.urgent	        #44475A #FF5555 #F8F8F2 #FF5555     #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36     #282A36
 client.background       #F8F8F2
 
-for_window [class="^.*"] border pixel 1
+#for_window [class="^.*"] border pixel 1
 
 gaps inner 10
 gaps outer 15
@@ -27,7 +27,7 @@ gaps outer 15
 bindsym $mod+z          gaps outer current plus 5
 bindsym $mod+Shift+z    gaps outer current minus 5
 
-default_border pixel 1
+#default_border pixel 1
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -37,7 +37,8 @@ bindsym Print exec spectacle
 bindsym $mod+Shift+q kill
 
 # autostart
-exec --no-startup-id compton -i 0.8 --config "/home/devin/.config/compton/compton.conf" &>> /tmp/compton
+#exec --no-startup-id compton -i 0.8 --config "/home/devin/.config/compton/compton.conf" &>> /tmp/compton
+#exec --no-startup-id compton --config "/home/devin/.config/compton/compton.conf" &>> /tmp/compton
 exec_always --no-startup-id feh --bg-scale "/home/devin/Pictures/Wallpaper/wallhaven-73wq13.jpg" 
 exec_always --no-startup-id "~/.dotfiles/polybar/launch.sh"
 exec --no-startup-id autocutsel
