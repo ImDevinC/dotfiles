@@ -1,9 +1,9 @@
 #!/bin/zsh
-command -v docker > /dev/null 2>&1 && {
-  function hydra() {
-    docker run oryd/hydra $@
-  }
-}
+# command -v docker > /dev/null 2>&1 && {
+#   function hydra() {
+#     docker run oryd/hydra $@
+#   }
+# }
 
 command -v terraform > /dev/null 2>&1 && {
   function tf () {

@@ -1,16 +1,16 @@
 #!/bin/bash
-git submodule init
-git submodule update
+# git submodule init
+# git submodule update
  
-command -v i3 > /dev/null 2>&1 && {
-  if [[ ! -L "$HOME/.config/i3/config" ]]; then
-    ln -sf "$(PWD)/i3/config" "$HOME/.config/i3/config"
-  fi
+# command -v i3 > /dev/null 2>&1 && {
+#   if [[ ! -L "$HOME/.config/i3/config" ]]; then
+#     ln -sf "$(PWD)/i3/config" "$HOME/.config/i3/config"
+#   fi
   
-  if [[ ! -L "$HOME/.config/polybar" ]]; then
-    ln -sf "${PWD}/polybar" "$HOME/.config/polybar"
-  fi
-}
+#   if [[ ! -L "$HOME/.config/polybar" ]]; then
+#     ln -sf "${PWD}/polybar" "$HOME/.config/polybar"
+#   fi
+# }
 
 command -v zsh > /dev/null 2>&1 && {
   if [[ ! -L "$HOME/.oh-my-zsh" ]]; then
@@ -42,20 +42,20 @@ command -v vim > /dev/null 2>&1 && {
   fi
 }
 
-command -v dunst > /dev/null 2>&1 && {
-  if [[ ! -L "$HOME/.config/dunst" ]]; then
-    ln -sf "${PWD}/dunst" "${HOME}/.config/dunst"
-  fi
-}
+# command -v dunst > /dev/null 2>&1 && {
+#   if [[ ! -L "$HOME/.config/dunst" ]]; then
+#     ln -sf "${PWD}/dunst" "${HOME}/.config/dunst"
+#   fi
+# }
 
-command -v compton > /dev/null 2>&1 && {
-  if [[ ! -L "$HOME/.config/compton" ]]; then
-    ln -sf "${PWD}/compton" "${HOME}/.config/compton"
-  fi
-}
+# command -v compton > /dev/null 2>&1 && {
+#   if [[ ! -L "$HOME/.config/compton" ]]; then
+#     ln -sf "${PWD}/compton" "${HOME}/.config/compton"
+#   fi
+# }
 
-command -v rofi > /dev/null 2>&1 && {
-  if [[ ! -L "$HOME/.config/rofi" ]]; then
-    ln -sf "${PWD}/rofi" "${HOME}/.config/rofi"
-  fi
-}
+# command -v rofi > /dev/null 2>&1 && {
+#   if [[ ! -L "$HOME/.config/rofi" ]]; then
+#     ln -sf "${PWD}/rofi" "${HOME}/.config/rofi"
+#   fi
+# }

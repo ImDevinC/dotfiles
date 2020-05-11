@@ -46,7 +46,7 @@ font-2 = Font Awesome 5 Free Solid:pixelsize=8
 modules-left = i3 
 modules-center = xwindow 
 #modules-right = temperature backlight volume wlan battery date powermenu
-modules-right = openvpn temperature volume date powermenu
+modules-right = openvpn temperature pulseaudio-control date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -171,19 +171,34 @@ format-foreground = ${bar/aenami.border-color}
 
 label =%date% %time%
 
-[module/volume]
-type = internal/pulseaudio
+#[module/volume]
+#type = internal/pulseaudio
+#
+#format-volume = <ramp-volume> <label-volume>
+#label-muted =   muted
+#label-muted-foreground = #66
+#
+#ramp-volume-0 = 
+#ramp-volume-1 = 
+#ramp-volume-2 = 
+#ramp-volume-3 = 
+#
+#click-right = pavucontrol &
 
-format-volume = <ramp-volume> <label-volume>
-label-muted =   muted
-label-muted-foreground = #66
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label = %output%
+#format-underline = ${colors.blue}
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-
-click-right = pavucontrol &
+exec = ~/.config/polybar/pulseaudio-control.sh listen
+#click-right = exec pavucontrol &
+click-right = ~/.config/polybar/pulseaudio-control.sh next-sink
+click-left = ~/.config/polybar/pulseaudio-control.sh togmute
+scroll-up = ~/.config/polybar/pulseaudio-control.sh up
+scroll-down = ~/.config/polybar/pulseaudio-control.sh down
+label-padding = 2
+label-foreground = ${colors.foreground}
 
 [module/temperature]
 interval = 5
