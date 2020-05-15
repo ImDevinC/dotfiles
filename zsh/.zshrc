@@ -6,7 +6,8 @@ case "${unameOut}" in
 esac
 
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
+ZSH_THEME="zash"
 
 plugins=(git adb cp autojump docker) 
 if [[ "${machine}" == "Mac" ]]; then
