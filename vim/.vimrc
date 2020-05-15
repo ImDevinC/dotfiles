@@ -11,7 +11,7 @@ set ruler
 syntax on
 
 " Turn off modelines
-set modelines=0
+set modelines=1
 
 " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
 " set textwidth=80
@@ -21,6 +21,11 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set noshiftround
+
+set showcmd
+set cursorline
+set wildmenu
+set showmatch
 
 " Ignore case when searching
 set ignorecase
@@ -54,6 +59,13 @@ set matchpairs+=<:>
 " Show line numbers
 set number
 highlight LineNr ctermfg=white
+
+" Folding
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+nnoremap <space> za
 
 " Set status line display
 set laststatus=2
@@ -97,3 +109,13 @@ set smartcase
 " Store info from no more than 100 files at a time, 9999 lines of text
 " 100kb of data. Useful for copying large amounts of data between files.
 set viminfo='100,<9999,s100
+
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'hashivim/vim-terraform'
+call plug#end()
+"}}}
+
+let g:terraform_fmt_on_save=1
