@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Kill Current
+
+## Panel
+killall tint2
+
+## Tray
+killall clipit
+killall volumeicon
+killall nm-applet
+
+# Notification Daemon
+killall dunst

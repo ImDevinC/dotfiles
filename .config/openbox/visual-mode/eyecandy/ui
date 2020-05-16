@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Eyecandy Theme UI
+
+# Background Handler
+nitrogen --set-zoom-fill --save ~/.wallpaper/gradient.jpg
+
+# Panel
+tint2 -c ~/.config/tint2/eyecandy.tint2rc &
+
+# Tray
+clipit &
+volumeicon &
+nm-applet &
+
+# Notification Daemon
+dunst -config ~/.config/dunst/dunstrc &

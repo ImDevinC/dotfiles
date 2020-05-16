@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Start Eyecandy Theme
+
+current="$(cat ~/.config/openbox/visual-mode/current)"
+
+if [[ $current != *"eyecandy"* ]]; then
+    
+    # Kill Current
+    bash -c '~/.config/openbox/visual-mode/kill-ui'
+    
+    # Set UI & Theme
+    bash -c '~/.config/openbox/visual-mode/eyecandy/theme'
+    bash -c '~/.config/openbox/visual-mode/eyecandy/ui'
+    
+    # Write Current
+    echo "eyecandy" > ~/.config/openbox/visual-mode/current
+
+    # Notify Success
+    notify-send -u low -i lookswitcher "Visual Mode" "Eyecandy Theme Applied"
+
+else
+
+    # Notify Fail
+    notify-send -u low -i lookswitcher "Visual Mode" "You're Already in Eyecandy Theme"
+    
+fi
