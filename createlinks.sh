@@ -31,9 +31,7 @@ command -v vim > /dev/null 2>&1 && {
 
 command -v zsh > /dev/null 2>&1 && {
   echo "Creating links for zsh"
-  if [[ ! -L "$HOME/.oh-my-zsh" ]]; then
-    ln -sf "${PWD}/.oh-my-zsh" "$HOME/.oh-my-zsh"
-  fi
+  ln -sf "${PWD}/.oh-my-zsh/themes/zash.zsh-theme" "$HOME/.oh-my-zsh/themes/zash.zsh-theme"
 
   if [[ ! -L "$HOME/.zshrc" ]]; then
     ln -sf "${PWD}/.zshrc" "$HOME/.zshrc"
