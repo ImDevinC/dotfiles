@@ -431,7 +431,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>urxvt</command>
+        <command>urxvt -e zsh -c "tmux"</command>
       </action>
     </keybind>
     <keybind key="W-e">

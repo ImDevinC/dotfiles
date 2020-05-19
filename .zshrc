@@ -33,7 +33,7 @@ if [ -d "/sbin" ]; then PATH="${PATH}:/sbin" fi
 
 export PATH=${PATH}
 
-if [ -d "${HOME}/.dotfiles/zsh/sources" ]; then for f in ${HOME}/.dotfiles/zsh/sources/*; do source $f; done; fi
+if [ -d "${HOME}/.dotfiles/sources" ]; then for f in ${HOME}/.dotfiles/sources/*; do source $f; done; fi
 
 alias ssh='TERM=xterm-color ssh'
 source $ZSH/oh-my-zsh.sh
