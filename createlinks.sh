@@ -6,7 +6,7 @@ for c in ${COMMANDS[@]}; do
   command -v ${c} > /dev/null 2>&1 && {
     if [[ ! -L "$HOME/.config/${c}" ]]; then
       echo "Creating link for ${c}"
-      ln -sf "${PWD}/.config/${c}/" "${HOME}/.config/${c}/"
+      ln -sf "${PWD}/.config/${c}" "${HOME}/.config/${c}"
     fi
   }
 done
