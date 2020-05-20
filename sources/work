@@ -52,3 +52,7 @@ command -v aws > /dev/null 2>&1 && {
       aws kms encrypt --key-id ${1} --plaintext fileb://<(printf $(pbpaste) | base64) --output text --query CiphertextBlob
   }
 }
+
+command -v shiba > /dev/null 2>&1 && {
+  alias shibapup="SHIBA_TOKEN=\${SHIBAPUP_TOKEN} SHIBA_URL=\${SHIBAPUP_URL} shiba"
+}
