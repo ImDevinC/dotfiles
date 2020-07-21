@@ -22,4 +22,5 @@ picom -b
 xfce4-power-manager &
 
 # Lock Screen Handler
-xss-lock -- /usr/bin/dm-tool lock &
+light-locker &
+xss-lock -- /usr/bin/light-locker-command -l &

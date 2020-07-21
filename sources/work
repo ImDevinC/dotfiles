@@ -55,4 +55,5 @@ command -v aws > /dev/null 2>&1 && {
 
 command -v shiba > /dev/null 2>&1 && {
   alias shibapup="SHIBA_TOKEN=\${SHIBAPUP_TOKEN} SHIBA_URL=\${SHIBAPUP_URL} shiba"
+  alias shibasb="SHIBA_TOKEN=\${SHIBA_SANDBOX_TOKEN} SHIBA_URL=\${SHIBA_SANDBOX_URL} shiba"
 }
