@@ -30,6 +30,7 @@ if [ -d "/usr/bin" ]; then PATH="${PATH}:/usr/bin" fi
 if [ -d "/bin" ]; then PATH="${PATH}:/bin" fi
 if [ -d "/usr/sbin" ]; then PATH="${PATH}:/usr/sbin" fi
 if [ -d "/sbin" ]; then PATH="${PATH}:/sbin" fi
+if [ -d "/var/lib/snapd/snap/bin" ]; then PATH="${PATH}:/var/lib/snapd/snap/bin" fi
 
 export PATH=${PATH}
 
@@ -64,4 +65,8 @@ if [ -d "${HOME}/.dotfiles/privates" ]; then for f in ${HOME}/.dotfiles/privates
 
 command -v xrdb > /dev/null 2>&1 && {
   xrdb "${HOME}/.Xresources"
+}
+
+command -v microk8s > /dev/null 2>&1 && {
+  alias kubectl='microk8s.kubectl'
 }
