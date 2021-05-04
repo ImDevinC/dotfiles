@@ -6,10 +6,9 @@ case "${unameOut}" in
 esac
 
 export ZSH=$HOME/.oh-my-zsh
-#ZSH_THEME="af-magic"
 ZSH_THEME="zash"
 
-plugins=(git adb cp autojump docker) 
+plugins=(git adb cp autojump docker kubectl) 
 if [[ "${machine}" == "Mac" ]]; then
   plugins+=(osx)
 elif [[ "${machine}" == "Linux" ]]; then
@@ -65,8 +64,4 @@ if [ -d "${HOME}/.dotfiles/privates" ]; then for f in ${HOME}/.dotfiles/privates
 
 command -v xrdb > /dev/null 2>&1 && {
   xrdb "${HOME}/.Xresources"
-}
-
-command -v microk8s > /dev/null 2>&1 && {
-  alias kubectl='microk8s.kubectl'
 }

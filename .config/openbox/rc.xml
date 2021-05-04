@@ -31,7 +31,7 @@
     'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Blabla</name>
+    <name>Nord-Openbox</name>
     <titleLayout>SLIMC</titleLayout>
     <!-- available characters are NDSLIMC, each can occur at most once. N: window icon L: window label (AKA title). I: iconify M: maximize C: close S: shade (roll up/down) D: omnipresent (on all desktops). -->
     <keepBorder>yes</keepBorder>
@@ -121,6 +121,8 @@
       <!-- positive number for distance from left edge, negative number for distance from right edge, or 'Center' -->
       <!-- <y>10</y> -->
       <!-- positive number for distance from top edge, negative number for distance from bottom edge, or 'Center' -->
+      <x>0</x>
+      <y>0</y>
     </popupFixedPosition>
   </resize>
   <!-- You can reserve a portion of your screen where windows will not cover when they are maximized, or when they are initially placed. Many programs reserve space automatically, but you can use this in other cases. -->
@@ -447,6 +449,11 @@
     <keybind key="W-Print">
       <action name="Execute">
         <command>bash -c '~/.config/rofi/scripts/screenshot.sh'</command>
+      </action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute">
+          <command>scrot -s -e 'mv $f ~/Pictures/'</command>
       </action>
     </keybind>
   </keyboard>
@@ -823,11 +830,11 @@
       <maximized>true</maximized>
     </application>
     <application class="ArenaTracker" type="normal">
-        <layer>above</layer>
+      <layer>above</layer>
     </application>
     <application name="hearthstone.exe" type="normal">
-        <decor>no</decor>
-        <fullscreen>true</fullscreen>
+      <decor>no</decor>
+      <fullscreen>true</fullscreen>
     </application>
   </applications>
 </openbox_config>

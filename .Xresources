@@ -1,7 +1,8 @@
 !! URxvt Appearance
 ! ---
-URxvt.font:                       xft:mplus nerd font mono:size=9
-URxvt.geometry:                   86x16
+!URxvt.font:                       xft:mplus nerd font mono:size=9
+URxvt.font:                       xft:mplus Nerd Font mono:style=regular:size=11
+URxvt.geometry:                   86x28
 URxvt.internalBorder:             20
 URxvt.cursorBlink:                true
 URxvt.cursorUnderline:            true
@@ -14,6 +15,7 @@ URxvt.urgentOnBell:               false
 URxvt.depth:                      24
 URxvt.iso14755:                   false
 URxvt.iconFile:                   /home/devin/.term.png
+URxvt.letterSpace:                -3
 
 !! URxvt Extensions
 ! ---

@@ -185,23 +185,23 @@ clock_dwheel_command =
 
 #-------------------------------------
 # Battery
-#battery_tooltip = 1
-#battery_low_status = 0
-#battery_low_cmd = 
-#battery_full_cmd = 
-#battery_font_color = #000000 100
-#bat1_format = 
-#bat2_format = 
-#battery_padding = 0 0
-#battery_background_id = 0
-#battery_hide = 101
-#battery_lclick_command = 
-#battery_rclick_command = 
-#battery_mclick_command = 
-#battery_uwheel_command = 
-#battery_dwheel_command = 
-#ac_connected_cmd = 
-#ac_disconnected_cmd = 
+battery_tooltip = 1
+battery_low_status = 0
+battery_low_cmd = 
+battery_full_cmd = 
+battery_font_color = #000000 100
+bat1_format = 
+bat2_format = 
+battery_padding = 0 0
+battery_background_id = 0
+battery_hide = 101
+battery_lclick_command = 
+battery_rclick_command = 
+battery_mclick_command = 
+battery_uwheel_command = 
+battery_dwheel_command = 
+ac_connected_cmd = 
+ac_disconnected_cmd = 
 
 #-------------------------------------
 # Separator 1
@@ -296,7 +296,7 @@ button_max_icon_size = 0
 #-------------------------------------
 # Button 2
 button = new
-button_text = 〃
+button_text = ǁ
 button_lclick_command = 
 button_rclick_command = 
 button_mclick_command = 
@@ -304,7 +304,7 @@ button_uwheel_command =
 button_dwheel_command = 
 button_font = Noto Sans 16
 button_font_color = #2be491 100
-button_padding = 0 0
+button_padding = 2 2
 button_background_id = 0
 button_centered = 0
 button_max_icon_size = 0
